@@ -65,8 +65,8 @@ public class SpringJpaTest {
 			List<Student> students = studentRepository.findAll();
 			students.forEach(System.out::println);
 
-			System.out.println("Delete maria");
-			studentRepository.deleteById(1L);
+//			System.out.println("Delete maria");
+//			studentRepository.deleteById(1L);
 
 			System.out.println("\nNumber of students:");
 			System.out.println(studentRepository.count());
@@ -79,6 +79,11 @@ public class SpringJpaTest {
 							System.out::println,
 							() -> System.out.println("Student with email: " + email + " not found.")
 					);
+
+			System.out.println("\nStudents by name and age:");
+			studentRepository
+					.selectStudentWhereFirstNameAndAgeGreaterOrEqual("Maria", 21)
+					.forEach(System.out::println);
 		};
 	}
 }
