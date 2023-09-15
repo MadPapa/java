@@ -45,6 +45,21 @@ public class SpringJpaTest {
 			studentRepository.saveAll(List.of(maria, maria2, jan));
 
 			System.out.println("Students count: " + studentRepository.count());
+
+			System.out.println("\nStudents by id:");
+			studentRepository
+					.findById(2L)
+					.ifPresentOrElse(
+							System.out::println,
+							() -> System.out.println("Student with ID 2 not found.")
+					);
+
+			studentRepository
+					.findById(3L)
+					.ifPresentOrElse(
+							System.out::println,
+							() -> System.out.println("Student with ID 3 not found.")
+					);
 		};
 	}
 }
