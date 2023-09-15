@@ -89,6 +89,9 @@ public class SpringJpaTest {
 			studentRepository
 					.selectStudentWhereFirstNameAndAgeGreaterOrEqualNative("Maria", 21)
 					.forEach(System.out::println);
+
+			System.out.println("Deleting Maria 2");
+			System.out.println(studentRepository.deleteStudentById(3L));
 		};
 	}
 }
