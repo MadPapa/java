@@ -60,6 +60,16 @@ public class SpringJpaTest {
 							System.out::println,
 							() -> System.out.println("Student with ID 3 not found.")
 					);
+
+			System.out.println("\nAll students:");
+			List<Student> students = studentRepository.findAll();
+			students.forEach(System.out::println);
+
+			System.out.println("Delete maria");
+			studentRepository.deleteById(1L);
+
+			System.out.println("\nNumber of students:");
+			System.out.println(studentRepository.count());
 		};
 	}
 }
