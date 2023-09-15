@@ -70,6 +70,15 @@ public class SpringJpaTest {
 
 			System.out.println("\nNumber of students:");
 			System.out.println(studentRepository.count());
+
+			System.out.println("\nStudent by email:");
+			String email = "jan.nowak@example.com";
+			studentRepository
+					.findStudentByEmail(email)
+					.ifPresentOrElse(
+							System.out::println,
+							() -> System.out.println("Student with email: " + email + " not found.")
+					);
 		};
 	}
 }
