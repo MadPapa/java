@@ -84,6 +84,11 @@ public class SpringJpaTest {
 			studentRepository
 					.selectStudentWhereFirstNameAndAgeGreaterOrEqual("Maria", 21)
 					.forEach(System.out::println);
+
+			System.out.println("\nStudents by name and age native query:");
+			studentRepository
+					.selectStudentWhereFirstNameAndAgeGreaterOrEqualNative("Maria", 21)
+					.forEach(System.out::println);
 		};
 	}
 }
