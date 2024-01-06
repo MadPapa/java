@@ -101,6 +101,25 @@ public class Main {
 
         System.out.println();
         oldestFemaleAge.ifPresent(System.out::println);
+
+
+
+        Integer[] numbers = {1, 2, 3, 4, 5, 6};
+
+        Optional<Integer> maxInteger = Arrays.stream(numbers)
+                .max(Integer::compareTo);
+
+        maxInteger.ifPresent(System.out::println);
+
+
+        List<Double> doubles = List.of(1.2, 1.4, 2.2, 5.4);
+
+        Optional<Double> minDouble = doubles.stream()
+                .min(Double::compareTo);
+
+        minDouble.ifPresent(System.out::println);
+
+
     }
 
     private static List<Person> getPeople() {
